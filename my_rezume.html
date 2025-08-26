@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Портфолио журналиста — Мария Полушкина</title>
+  <meta name="description" content="Портфолио журналиста: лучшие материалы, темы, контакт для редакций и заказчиков." />
+  <meta name="theme-color" content="#d8b4fe" />
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Портфолио журналиста — Мария Полушкина" />
+  <meta property="og:description" content="Лучшие репортажи, интервью и аналитика. Свяжитесь для сотрудничества." />
+  <meta property="og:image" content="" />
+  <style>
+    :root{
+      --bg:#0b1020;
+      --bg-soft:#0f172a;
+      --text:#e5e7eb;
+      --muted:#94a3b8;
+      --brand-gradient:linear-gradient(135deg,#e9d5ff,#d8b4fe,#c084fc,#a78bfa);
+      --accent:#a78bfa;
+      --ok:#34d399;
+      --bad:#f87171;
+      --ring:0 0 0 3px rgba(216,180,254,.4);
+    }
+    @media (prefers-color-scheme: light){
+      :root{
+        --bg:#f8fafc; --bg-soft:#ffffff; --text:#0f172a; --muted:#475569;
+      }
+    }
+    *,*::before,*::after{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--bg);color:var(--text);font:400 16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;}
+    img{max-width:100%;display:block}
+    a{color:inherit;text-decoration:none}
+    .container{max-width:1100px;margin-inline:auto;padding:0 20px}
+
+    /* Header */
+    header{position:sticky;top:0;z-index:50;background:linear-gradient(180deg,rgba(11,16,32,.95),rgba(11,16,32,.75));backdrop-filter:saturate(140%) blur(8px);border-bottom:1px solid rgba(148,163,184,.15)}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
+    .brand{display:flex;gap:12px;align-items:center}
+    .avatar{width:40px;height:40px;border-radius:50%;background:var(--brand-gradient);display:grid;place-items:center;color:#0b1020;font-weight:800}
+    .brand h1{font-size:18px;margin:0}
+    nav ul{display:flex;gap:14px;list-style:none;margin:0;padding:0}
+    nav a{padding:8px 10px;border-radius:999px}
+    nav a:hover,nav a:focus{outline:none;box-shadow:var(--ring);background:rgba(216,180,254,.2)}
+
+    /* Hero */
+    .hero{padding:56px 0}
+    .hero h2{font-size:44px;line-height:1.15;margin:0 0 12px}
+    .hero span{background:var(--brand-gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+    .hero p{color:var(--muted);margin:0 0 18px}
+    .badges{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0 0}
+    .badge{border:1px solid rgba(148,163,184,.25);padding:6px 10px;border-radius:999px;font-size:14px}
+    .cta{display:flex;gap:12px;margin-top:18px}
+    .btn{padding:10px 20px;border-radius:8px;cursor:pointer;border:1px solid var(--muted)}
+    .btn.primary{background:var(--brand-gradient);color:#0b1020;border:none;font-weight:700;padding:10px 20px;border-radius:8px;cursor:pointer}
+    .btn:hover{transform:translateY(-1px)}
+
+    /* Sections */
+    section{padding:30px 0}
+    .section-title{display:flex;align-items:center;gap:8px;font-size:22px;margin:40px 0 20px}
+    .section-title .dot{width:9px;height:9px;border-radius:50%;background:var(--brand-gradient);box-shadow:0 0 0 4px rgba(216,180,254,.25)}
+    .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:20px}
+
+    /* About */
+    .about .card{grid-column:1/-1;background:var(--bg-soft);border:1px solid rgba(148,163,184,.15);border-radius:16px;padding:18px}
+
+    /* Work grid */
+    .work .filters{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:8px}
+    .chip{padding:6px 10px;border-radius:999px;border:1px solid rgba(148,163,184,.25);cursor:pointer;font-size:14px}
+    .chip[aria-pressed="true"], .chip:hover{background:rgba(34,211,238,.12);box-shadow:var(--ring); color:#f1f1f1;}
+    .card{background:var(--bg-soft);border:1px solid rgba(148,163,184,.15);border-radius:16px;overflow:hidden}
+    .card .cover{aspect-ratio:16/9;background:linear-gradient(135deg,rgba(34,211,238,.4),rgba(167,139,250,.4));}
+    .card .content{padding:14px}
+    .meta{display:flex;gap:10px;align-items:center;color:var(--muted);font-size:14px;margin-bottom:6px}
+    .tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+    .tag{font-size:12px;padding:4px 8px;border:1px solid rgba(148,163,184,.25);border-radius:999px;color:var(--muted)}
+    .card a.more{display:inline-block;margin-top:8px;color:var(--brand-gradient)}
+
+    .gallery img{cursor:pointer;border-radius:12px;transition:transform .2s;width:100%;height:auto}
+    .gallery img:hover{transform:scale(1.03)}
+    .lightbox{position:fixed;inset:0;background:rgba(0,0,0,.8);display:none;align-items:center;justify-content:center;z-index:1000}
+    .lightbox img{max-width:90%;max-height:90%;border-radius:12px}
+
+    .work .item{grid-column:span 6}
+    @media (max-width: 800px){ .work .item{grid-column:1/-1} .hero h2{font-size:34px}}
+
+    /* Testimonials */
+    .quotes .item{grid-column:span 4}
+    @media (max-width: 800px){ .quotes .item{grid-column:1/-1}}
+    blockquote{margin:0;padding:16px;border-left:3px solid var(--brand-gradient);background:rgba(34,211,238,.06);border-radius:12px}
+    cite{display:block;margin-top:8px;color:var(--muted);font-style:normal}
+
+    /* Contact */
+    form{display:grid;gap:12px}
+    input, textarea{width:100%;padding:12px 14px;border-radius:12px;border:1px solid rgba(148,163,184,.25);background:transparent;color:var(--text)}
+    input:focus, textarea:focus{outline:none;box-shadow:var(--ring);border-color:transparent}
+    textarea{min-height:120px;resize:vertical}
+    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    @media (max-width:700px){.form-row{grid-template-columns:1fr}}
+
+    footer{padding:30px 0;color:var(--muted);border-top:1px solid rgba(148,163,184,.15)}
+    .social{display:flex;gap:12px}
+
+    /* Print */
+    @media print{
+      header, .cta, .filters, .chip, form, .cover{display:none!important}
+      .card{page-break-inside:avoid}
+      body{background:#fff;color:#000}
+    }
+  </style>
+  <script>
+    // Простая фильтрация по тегам + расчёт времени чтения
+    document.addEventListener('DOMContentLoaded', () => {
+      const chips = document.querySelectorAll('[data-filter]');
+      const cards = document.querySelectorAll('[data-tags]');
+      const readingNodes = document.querySelectorAll('[data-words]');
+
+      chips.forEach(chip => chip.addEventListener('click', () => {
+        const tag = chip.dataset.filter;
+        const active = chip.getAttribute('aria-pressed') === 'true';
+        chips.forEach(c => c.setAttribute('aria-pressed','false'));
+        chip.setAttribute('aria-pressed', active ? 'false' : 'true');
+        const chosen = active ? null : tag;
+        cards.forEach(card => {
+          const tags = card.dataset.tags.split(',');
+          card.style.display = (!chosen || tags.includes(chosen)) ? '' : 'none';
+        });
+      }));
+
+      readingNodes.forEach(node => {
+        const words = parseInt(node.dataset.words,10)||0;
+        const min = Math.max(1, Math.round(words / 200)); // 200 слов/мин
+        node.textContent = `${min} мин чтения`;
+      });
+    });
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Мария Полушкина",
+      "jobTitle": "Журналист",
+      "url": "https://example.com",
+      "sameAs": [
+        "https://t.me/username",
+        "https://www.linkedin.com/in/username",
+        "https://twitter.com/username"
+      ]
+    }
+  </script>
+</head>
+<body>
+  <header>
+    <div class="container nav" role="navigation" aria-label="Основная навигация">
+      <a class="brand" href="#top">
+        <div class="avatar" aria-hidden="true">МП</div>
+        <h1>Мария Полушкина</h1>
+      </a>
+      <nav>
+        <ul>
+          <li><a href="#work">Материалы</a></li>
+          <li><a href="#about">Обо мне</a></li>
+          <li><a href="#awards">Грамоты</a></li>
+          <li><a href="#testimonials">Отзывы</a></li>
+          <li><a href="#contact">Контакты</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top" class="container">
+    <!-- Hero -->
+    <section class="hero">
+      <h2>Журналист и репортёр, специализация — <span style="color:var(--brand-gradient)">расследования</span> и <span style="color:var(--accent)">социальные темы</span>.</h2>
+      <p>Пишу для национальных изданий, снимаю репортажи и делаю интервью. На связи для редакций и проектов под ключ.</p>
+      <div class="badges" aria-label="Направления">
+        <span class="badge">расследования</span>
+        <span class="badge">интервью</span>
+        <span class="badge">репортаж</span>
+        <span class="badge">аналитика</span>
+      </div>
+      <div class="cta">
+        <a class="btn primary" href="#contact">Связаться</a>
+        <a class="btn" href="cv.pdf" download>Скачать резюме</a>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="about">
+      <h3 class="section-title"><span class="dot"></span> Обо мне</h3>
+      <div class="grid">
+        <article class="card" aria-labelledby="about-title">
+          <div class="content">
+            <h4 id="about-title" style="margin-top:0">Леонова Мария Евгеньевна</h4>
+            <p>Журналист с X+ годами опыта. Публиковалась в <strong>Издание А</strong>, <strong>Издание B</strong>, <strong>Издание C</strong>. Лауреат премии <em>Название</em> (2024). Интересы: городская среда, цифровые права, труд и миграция.</p>
+            <ul>
+              <li>Гео: Саратов / дистанционно</li>
+              <li>E‑mail: <a href="mailto:you@example.com">mpolushik@gmail.com</a></li>
+              <li>Телеграм: <a href="https://t.me/username">@caligokras</a></li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Work -->
+    <section id="work" class="work">
+      <h3 class="section-title"><span class="dot"></span> Выбранные материалы</h3>
+      <div class="filters" role="toolbar" aria-label="Фильтр по тегам">
+        <button class="chip" aria-pressed="false" data-filter="расследование">Расследование</button>
+        <button class="chip" aria-pressed="false" data-filter="интервью">Интервью</button>
+        <button class="chip" aria-pressed="false" data-filter="репортаж">Репортаж</button>
+        <button class="chip" aria-pressed="false" data-filter="аналитика">Аналитика</button>
+      </div>
+
+      <div class="grid">
+        <!-- Card 1 -->
+        <article class="item card" data-tags="репортаж">
+          <div class="cover" role="img" aria-label="Сцена с места событий"><img src="https://sun9-53.userapi.com/s/v1/if2/f3XFmnZ-iEcp4VBAC3bLfkNDJTIZQ9peL2DmHUxeEIsozuyRSeJCNhK8UWh80XfwYvVJ_Qh8VatCG26lLoCMuwl-.jpg?quality=95&as=32x24,48x36,72x54,108x80,160x119,240x178,360x268,480x357,540x401,640x476,720x535,1080x803,1280x951,1440x1070,2560x1903&from=bu&cs=2560x0"></div>
+          <div class="content">
+            <div class="meta">
+              <span>Издание C</span>
+              <span>•</span>
+              <span data-words="2200">1 мин чтения</span>
+              <span>•</span>
+              <time datetime="2024-11-03">3 ноября 2024</time>
+            </div>
+            <h4>Ночная смена: репортаж из приёмного отделения</h4>
+            <p>Как работает больница на пределе возможностей — день и ночь вместе с врачами и пациентами.</p>
+            <div class="tags">
+              <span class="tag">репортаж</span>
+              <span class="tag">медицина</span>
+            </div>
+            <a class="more" href="https://vk.com/wall-30492350_30037" target="_blank" rel="noopener">Читать в издании</a>
+          </div>
+        </article>
+
+        <!-- Card 2 -->
+        <article class="item card" data-tags="аналитика">
+          <div class="cover" role="img" aria-label="Графики и диаграммы"><img src="https://sun9-20.userapi.com/s/v1/if2/ONiMifJSsEEeaTS6DC1NbYtoS3V55aKZH-f7Tcm70MgD8Jyu557MKOfQ4_bw5_3oMWmULE6U2qmuDqe556IWxI_A.jpg?quality=95&as=32x21,48x32,72x48,108x72,160x107,240x160,360x240,480x320,540x360,640x427,720x480,1080x720,1280x853,1440x960,2560x1707&from=bu&cs=2560x0"></div>
+          <div class="content">
+            <div class="meta">
+              <span>Издание A</span>
+              <span>•</span>
+              <span data-words="1800">1 мин чтения</span>
+              <span>•</span>
+              <time datetime="2024-07-18">18 июля 2024</time>
+            </div>
+            <h4>Цифровые права и новые правила игры</h4>
+            <p>К чему приводят новые регуляции для пользователей и бизнеса: факты, риски и прогнозы.</p>
+            <div class="tags">
+              <span class="tag">аналитика</span>
+              <span class="tag">технологии</span>
+            </div>
+            <a class="more" href="https://vk.com/wall-30492350_28723" target="_blank" rel="noopener">Читать в издании</a>
+          </div>
+        </article>
+        <!-- Card 3 -->
+        <article class="item card" data-tags="расследование,аналитика">
+          <div class="cover" role="img" aria-label="Иллюстрация статьи"><img src="https://sun9-80.userapi.com/s/v1/ig2/Yaml3I7gQdCaLNtkxcaTY2fM7uvyvdRuIMttwPiv6psaEEF8uQzZogYF5CnbhHzooAkrpzANvO15ndxTYjGLSr7t.jpg?quality=95&as=32x40,48x60,72x90,108x135,160x200,240x300,360x450,480x600,540x675,640x800,720x900,1080x1350&from=bu&u=oGdi9kVGBJxQJgAqL6DpcIPuLV57dnfFdWw3oHE-wKQ&cs=540x0"></div>
+          <div class="content">
+            <div class="meta">
+              <span>Издание A</span>
+              <span>•</span>
+              <span data-words="1100">1 мин чтения</span>
+              <span>•</span>
+              <time datetime="2025-04-12">12 апреля 2025</time>
+            </div>
+            <h4>Теневая экономика города: кому выгодны серые рынки</h4>
+            <p>Разбор схем и участников с документами и комментариями экспертов — как работают серые рынки и что с ними делать.</p>
+            <div class="tags">
+              <span class="tag">расследование</span>
+              <span class="tag">экономика</span>
+            </div>
+            <a class="more" href="https://vk.com/wall-30492350_30056" target="_blank" rel="noopener">Читать в издании</a>
+          </div>
+        </article>
+
+        <!-- Card 4 -->
+        <article class="item card" data-tags="интервью">
+          <div class="cover" role="img" aria-label="Портрет героя интервью"><img src="https://sun9-82.userapi.com/s/v1/ig2/oUzjzxyz23FPRcGTUC7EkpuiirhLvyMq2KRK-0zhvTf4eT1Oag4PxZ1uk94T_mZtJpEtCocQUriDLGsZJcpEJ_Ny.jpg?quality=95&as=32x40,48x60,72x90,108x135,160x200,240x300,360x450,480x600,540x675,640x800,720x900,1024x1280&from=bu&cs=1024x0"></div>
+          <div class="content">
+            <div class="meta">
+              <span>Издание B</span>
+              <span>•</span>
+              <span data-words="1600">1 мин чтения</span>
+              <span>•</span>
+              <time datetime="2025-02-20">20 февраля 2025</time>
+            </div>
+            <h4>«Город должен слушать»: интервью с урбанистом N</h4>
+            <p>О том, почему дворы пустеют, как вернуть жизнь на улицы и где граница между комфортом и контролем.</p>
+            <div class="tags">
+              <span class="tag">интервью</span>
+              <span class="tag">урбанистика</span>
+            </div>
+            <a class="more" href="https://vk.com/wall-30492350_30051" target="_blank" rel="noopener">Читать в издании</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Awards -->
+    <section id="awards">
+      <h3 class="section-title"><span class="dot"></span> Грамоты и награды</h3>
+      <div class="grid gallery">
+        <div class="item card" style="grid-column:span 4"><img src="https://downloader.disk.yandex.ru/preview/f23cd7d8da27c65aa7fb1095fa51dbb74cc02f4c898f4cf713ffc9a0d50b10e3/68ae35d6/Z93VyWhJ_z5TUf-e1WUvuR1e9n4r-dEEjtqoZDV5eqmnNNBZROVdWIPAUsmsFHNXebYgtAmMf0zto7DrOjDrzw%3D%3D?uid=0&filename=ммм.jpg&disposition=inline&hash=&limit=0&content_type=image%2Fjpeg&owner_uid=0&tknv=v3&size=1920x978" alt="Грамота 1"></div>
+        <div class="item card" style="grid-column:span 4"><img src="https://downloader.disk.yandex.ru/preview/5ec1f570e228e182de624ed11825d428f22a9d4fe5aa21d26ef59da6a80d04b2/68ae35d6/GEZtCgLrVD7LvsqM2FfYKxk6oLxEnykRC_k_zkXtmMAOrn9QHbFfo5ugloUD9XNHZ7DhroUeQICBO7LBw4u5Tw%3D%3D?uid=0&filename=9b16c27f-5cad-4a0c-b646-ad13acbce1f7.jfif&disposition=inline&hash=&limit=0&content_type=image%2Fjpeg&owner_uid=0&tknv=v3&size=1920x978" alt="Грамота 2"></div>
+        <div class="item card" style="grid-column:span 4"><img src="https://downloader.disk.yandex.ru/preview/047c752cb70ea59b429336bca82c0b83d62556b341e82a61ba47d2ece98066d4/68ae35d6/tu1OilmWQwWJtizAIgHkgUbr4T8FxjBZU_aSlWTBfebY-kNAH0rcMGPuZCZWP5HUTUxW1lYWMMfNpUarQA6qUA%3D%3D?uid=0&filename=и.jpg&disposition=inline&hash=&limit=0&content_type=image%2Fjpeg&owner_uid=0&tknv=v3&size=1920x978" alt="Грамота 3"></div>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials" class="quotes">
+      <h3 class="section-title"><span class="dot"></span> Отзывы редакторов</h3>
+      <div class="grid">
+        <div class="item">
+          <blockquote>
+            «Точно, аккуратно и быстро. Материалы всегда со ссылками и фактчекингом.»
+            <cite>— Редактор, Издание A</cite>
+          </blockquote>
+        </div>
+        <div class="item">
+          <blockquote>
+            «Отличное чувство героя и структуры. Интервью читаются на одном дыхании.»
+            <cite>— Главред, Издание B</cite>
+          </blockquote>
+        </div>
+        <div class="item">
+          <blockquote>
+            «Умеет объяснять сложное просто — без потери смысла.»
+            <cite>— Редактор, Издание C</cite>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+      <h3 class="section-title"><span class="dot"></span> Контакты</h3>
+      <div class="grid">
+        <div class="card" style="grid-column:span 7">
+          <div class="content">
+            <form action="mailto:you@example.com" method="post" enctype="text/plain">
+              <div class="form-row">
+                <div>
+                  <label for="name">Имя</label>
+                  <input id="name" name="name" placeholder="Как к вам обращаться" required />
+                </div>
+                <div>
+                  <label for="email">E‑mail</label>
+                  <input id="email" type="email" name="email" placeholder="you@example.com" required />
+                </div>
+              </div>
+              <div>
+                <label for="msg">Сообщение</label>
+                <textarea id="msg" name="message" placeholder="Кратко опишите задачу"></textarea>
+              </div>
+              <button class="btn primary" type="submit">Отправить</button>
+            </form>
+          </div>
+        </div>
+        <aside class="card" style="grid-column:span 5">
+          <div class="content">
+            <h4 style="margin-top:0">Для редакций</h4>
+            <ul>
+              <li>Темы: город, соцполитика, технологии</li>
+              <li>Форматы: расследование, репортаж, интервью</li>
+              <li>Срок публикации: по договорённости</li>
+            </ul>
+            <div class="social" aria-label="Социальные ссылки">
+              <a class="btn" href="#">LinkedIn</a>
+              <a class="btn" href="#">Telegram</a>
+              <a class="btn" href="#">Twitter/X</a>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <div class="lightbox" id="lightbox"><img src="" alt="Просмотр"></div>
+
+  <footer>
+    <div class="container" style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap">
+      <span>© <span id="year"></span> Мария Полушкина</span>
+      <span>Сделано без фреймворков, доступно с клавиатуры</span>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const lightbox=document.getElementById('lightbox');
+    const lightboxImg=lightbox.querySelector('img');
+    document.querySelectorAll('.gallery img').forEach(img=>{
+      img.addEventListener('click',()=>{lightboxImg.src=img.src;lightbox.style.display='flex'});
+    });
+    lightbox.addEventListener('click',()=>{lightbox.style.display='none';lightboxImg.src=''});
+  </script>
+</body>
+</html>
