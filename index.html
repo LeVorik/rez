@@ -224,12 +224,12 @@
 
     .gallery {
   display: grid;
-  grid-template-columns: repeat(12, 1fr);
+  grid-template-columns: repeat(8, 1fr);
   gap: 16px;
 }
 
 .gallery .item {
-  aspect-ratio: 3 / 4; /* одинаковое соотношение сторон карточки */
+  aspect-ratio: 4 / 3; /* одинаковое соотношение сторон карточки */
   overflow: hidden;
   border-radius: 12px;
   display: flex;
@@ -312,13 +312,13 @@
   <main id="top" class="container">
     <!-- Hero -->
     <section class="hero">
-      <h2>Журналист и репортёр, специализация — <span style="color:var(--brand-gradient)">расследования</span> и <span style="color:var(--accent)">социальные темы</span>.</h2>
-      <p>Пишу для национальных изданий, снимаю репортажи и делаю интервью. На связи для редакций и проектов под ключ.</p>
+      <h2>Журналист, корреспондент, копирайтер.</h2>
+      <p>Пишу для региональных изданий, снимаю репортажи и делаю интервью. На связи для редакций и проектов под ключ.</p>
+      <img src="https://sun9-49.userapi.com/s/v1/if2/WftV1M_Xm5WbxruqbfMaqSU_vcdMtHX5lMl4XROptN5H8UmYrocTjcGXDHp_OsY85R7KgklO_GXNy3WrMKenCFnR.jpg?quality=95&as=32x21,48x32,72x48,108x72,160x107,240x160,360x240,480x320,540x360,640x426,720x480,1080x720,1280x853,1440x960,2560x1706&from=bu&cs=2560x0">
       <div class="badges" aria-label="Направления">
-        <span class="badge">расследования</span>
         <span class="badge">интервью</span>
         <span class="badge">репортаж</span>
-        <span class="badge">аналитика</span>
+        <span class="badge">новости</span>
       </div>
       <div class="cta">
         <a class="btn primary" href="#contact">Связаться</a>
@@ -332,13 +332,50 @@
       <div class="grid">
         <article class="card" aria-labelledby="about-title">
           <div class="content">
-            <h4 id="about-title" style="margin-top:0">Полушкина Мария Евгеньевна</h4>
-            <p>Журналист с X+ годами опыта. Публиковалась в <strong>Издание А</strong>, <strong>Издание B</strong>, <strong>Издание C</strong>. Лауреат премии <em>Название</em> (2024). Интересы: городская среда, цифровые права, труд и миграция.</p>
+            <h3 id="about-title" style="margin-top:0">Полушкина Мария Евгеньевна</h3>
+            <p>Журналист с 4+ годами опыта. Участник заключительного этапа олимпиады <em>«Я – профессионал»</em> (2024). Интересы: городская среда, культура, искусство, образование, наука.</p>
+            <p>Опыт работы с региональными и федеральными медиа. Владение методами фактчекинга, навыки интервьюирования и сторителлинга. Публиковалась в «Название газеты» и «Название портала».</p>
             <ul>
               <li>Гео: Саратов / дистанционно</li>
-              <li>E‑mail: <span style="color:var(--brand-gradient)">mpolushik@gmail.com</span></li>
-              <li>Телеграм: <span style="color:var(--brand-gradient)" href="https://t.me/caligokras">@caligokras</span></li>
+              <li>E‑mail: <a href="mailto:you@example.com">mpolushik@gmail.com</a></li>
+              <li>Телеграм: <a href="https://t.me/username">@caligokras</a></li>
             </ul>
+            <p>Пишу диплом по дореволюционному женскому журналу, редактирую тексты в любых условиях – в лесу без интернета, в палатке, на экзамене по стендапу...</p>
+
+            <hr style="margin: 32px 0;">
+            <h3>Хобби и увлечения</h3>
+            <ul>
+              <li><strong>Театр и актёрское мастерство:</strong> выступаю на сцене, развиваю навыки импровизации и публичных выступлений.</li>
+              <li><strong>Фотография:</strong> люблю документировать жизнь города, использую снимки как визуальное дополнение к текстам.</li>
+              <li><strong>Подкасты:</strong> пробую себя в аудиоформатах, монтирую выпуски в Adobe Audition.</li>
+              <li><strong>Стендап:</strong> опыт работы со словом и взаимодействия с публикой в живом формате.</li>
+              <li><strong>Путешествия:</strong> нахожу вдохновение в разных местах и людях, легко работаю в новых условиях.</li>
+            </ul>
+
+            <hr style="margin: 32px 0;">
+            <h3>Дополнительные навыки:</h3>
+            <ul>
+              <li>Редактура и литературная обработка текстов</li>
+              <li>Интервьюирование и работа с экспертами</li>
+              <li>Adobe Audition, Audacity (монтаж подкастов)</li>
+              <li>Figma, Canva (визуальный сторителлинг)</li>
+              <li>WordPress, основы HTML/CSS</li>
+              <li>Тайм-менеджмент, работа в команде, стрессоустойчивость.</li>
+            </ul>
+
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="education" class="about">
+      <h3 class="section-title"><span class="dot"></span> Образование</h3>
+      <div class="grid">
+        <article class="card" aria-labelledby="about-title">
+          <div class="content">
+            <h4 id="about-title" style="margin-top:0">СГУ имени Н.Г.Черныевского<br>направление «Журналистика»</h4>
+            <p>Образовательная программа «МедиаЦЕХ» АНО «ШУМ», направление «Пресс-секретарь»<br>Курс «История и теория медиа», ВШЭ</p>
           </div>
         </article>
       </div>
@@ -444,11 +481,10 @@
     <section id="awards">
       <h3 class="section-title"><span class="dot"></span> Грамоты и награды</h3>
       <div class="grid gallery">
-        <div class="item card" style="grid-column:span 4"><img src="https://lh3.googleusercontent.com/pw/AP1GczN9SCyIO1iM5IK0vnMQxJnr3-Y_9A66PP3AGTlK46xQJWC8aN4WJYJWtt1-l7LBNfwXYgu-1YEXlEHJXOzkKaB1tNJ9ygug17XtNhShgeiGXH3QzoGtnhVNTzF1uubYYhrTDAYIoVPZlBSsJwKsRh3q=w732-h1300-s-no-gm?authuser=0" alt="Грамота 1"></div>
-        <div class="item card" style="grid-column:span 4"><img src="https://lh3.googleusercontent.com/pw/AP1GczOsVDVemV76isgjYN40gfhAAQtpCeKsSzbRUzv6gJFea36TkORkkAO6RBSv3maOeCVn0fgoXIddxm4A1AcUX7PRn3259nPmbVs2APkwQqrGixop2wI6bbpFe9hX3qo8QC3c1uEczT5gj2nFI9FXPZ3D=w2309-h1300-s-no-gm?authuser=0" alt="Грамота 2"></div>
-        <div class="item card" style="grid-column:span 4"><img src="https://lh3.googleusercontent.com/pw/AP1GczP36EmBMQr-bjs0sAKd4noVBDDf07kiuh-MV_EtWFg3A1DizcdAuKyDcCJ6SZmmK5utno0ALWVZp6s1CRVAHBjsyep0omoD5DIySU4dxdac24bA4hwp_kDPhgWOMhaELv8lhXKq5F7YP4I3LKmn5AF9=w732-h1300-s-no-gm?authuser=0" alt="Грамота 3"></div>
-        <div class="item card" style="grid-column:span 4"><img src="https://lh3.googleusercontent.com/pw/AP1GczP36EmBMQr-bjs0sAKd4noVBDDf07kiuh-MV_EtWFg3A1DizcdAuKyDcCJ6SZmmK5utno0ALWVZp6s1CRVAHBjsyep0omoD5DIySU4dxdac24bA4hwp_kDPhgWOMhaELv8lhXKq5F7YP4I3LKmn5AF9=w732-h1300-s-no-gm?authuser=0" alt="Грамота 3"></div>
-        <div class="item card" style="grid-column:span 4"><img src="https://lh3.googleusercontent.com/pw/AP1GczP36EmBMQr-bjs0sAKd4noVBDDf07kiuh-MV_EtWFg3A1DizcdAuKyDcCJ6SZmmK5utno0ALWVZp6s1CRVAHBjsyep0omoD5DIySU4dxdac24bA4hwp_kDPhgWOMhaELv8lhXKq5F7YP4I3LKmn5AF9=w732-h1300-s-no-gm?authuser=0" alt="Грамота 3"></div>
+        <div class="item card" style="grid-column:span 4"><img src="img/award2.jpg" alt="Грамота 1"></div>
+        <div class="item card" style="grid-column:span 4"><img src="img/award1.jpg" alt="Грамота 2"></div>
+        <div class="item card" style="grid-column:span 4"><img src="img/award4.jpg" alt="Грамота 3"></div>
+        <div class="item card" style="grid-column:span 4"><img src="img/award3.jpg" alt="Грамота 4"></div>
       </div>
     </section>
 
