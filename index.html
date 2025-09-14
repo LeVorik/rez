@@ -42,13 +42,13 @@
     .avatar{width:40px;height:40px;border-radius:50%;background:var(--brand-gradient);display:grid;place-items:center;color:#0b1020;font-weight:800}
     .brand h1{font-size:18px;margin:0}
     nav ul{display:flex;gap:14px;list-style:none;margin:0;padding:0}
-    nav a{padding:8px 10px;border-radius:999px}
+    nav a{padding:8px 10px;border-radius:999px;transition: all 0.3s}
     nav a:hover,nav a:focus{outline:none;box-shadow:var(--ring);background:rgba(216,180,254,.2)}
 
     /* Hero */
-    .hero{padding:56px 0}
+    .hero{padding:56px 0; gap:80px;display:flex;}
     .hero h2{font-size:44px;line-height:1.15;margin:0 0 12px}
-    .hero span, .about span{background:var(--brand-gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+    .hero span, .about span{background:linear-gradient(135deg, #ffffff, #ebebeb, #bbbbbb, #ffffff);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
     .hero p{color:var(--muted);margin:0 0 18px}
     .badges{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0 0}
     .badge{border:1px solid rgba(148,163,184,.25);padding:6px 10px;border-radius:999px;font-size:14px}
@@ -68,15 +68,16 @@
 
     /* Work grid */
     .work .filters{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:8px}
-    .chip{padding:6px 10px;border-radius:999px;border:1px solid rgba(148,163,184,.25);cursor:pointer;font-size:14px;margin-bottom: 14px}
-    .chip[aria-pressed="true"], .chip:hover{background:rgba(34,211,238,.12);box-shadow:var(--ring); color:#f1f1f1;}
-    .card{background:var(--bg-soft);border:1px solid rgba(148,163,184,.15);border-radius:16px;overflow:hidden}
+    .chip{padding:6px 10px;border-radius:999px;border:1px solid rgba(148,163,184,.25);cursor:pointer;font-size:14px;margin-bottom: 14px;transition:all 0.3s}
+    .chip[aria-pressed="true"], .chip:hover{transform:translateY(-3px);box-shadow:var(--ring);}
+    .card{background:var(--bg-soft);border:1px solid rgba(148,163,184,.15);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;}
     .card .cover{aspect-ratio:16/9;background:linear-gradient(135deg,rgba(34,211,238,.4),rgba(167,139,250,.4));}
     .card .content{padding:14px;grid-column:span 7;}
     .meta{display:flex;gap:10px;align-items:center;color:var(--muted);font-size:14px;margin-bottom:6px}
     .tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
     .tag{font-size:12px;padding:4px 8px;border:1px solid rgba(148,163,184,.25);border-radius:999px;color:var(--muted)}
-    .card a.more{display:inline-block;margin-top:8px;color:var(--brand-gradient)}
+    .card a.more{display:inline-block;margin-top:8px;color:var(--brand-gradient);border:1px solid rgba(148, 163, 184, .25);border-radius: 999px;padding: 6px 10px;transition: transform 0.3s}
+    .card a.more:hover{transform:scale(1.04);}
     .card h4 {margin-top: 0;margin-bottom: 10px;font-size: 1.25rem;}
     .card img {grid-column: span 5;border-radius: 12px;width: 100%;object-fit: cover;box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);transition: transform .3s ease;}
 
@@ -319,8 +320,8 @@
           <li><a href="#about">Обо мне</a></li>
           <li><a href="#work">Материалы</a></li>
           <li><a href="#awards">Грамоты</a></li>
-          <li><a href="#testimonials">Отзывы</a></li>
           <li><a href="#contact">Контакты</a></li>
+          <li><a href="#testimonials">Отзывы</a></li>
         </ul>
       </nav>
     </div>
@@ -329,18 +330,20 @@
   <main id="top" class="container">
     <!-- Hero -->
     <section class="hero">
-      <h2>Журналист, корреспондент, копирайтер.</h2>
-      <p>Пишу для региональных изданий, снимаю репортажи и делаю интервью. На связи для редакций и проектов под ключ.</p>
-      <div class="item"><img src="https://sun9-49.userapi.com/s/v1/if2/WftV1M_Xm5WbxruqbfMaqSU_vcdMtHX5lMl4XROptN5H8UmYrocTjcGXDHp_OsY85R7KgklO_GXNy3WrMKenCFnR.jpg?quality=95&as=32x21,48x32,72x48,108x72,160x107,240x160,360x240,480x320,540x360,640x426,720x480,1080x720,1280x853,1440x960,2560x1706&from=bu&cs=2560x0"></div>
-      <div class="badges" aria-label="Направления">
-        <span class="badge">интервью</span>
-        <span class="badge">репортаж</span>
-        <span class="badge">новости</span>
+      <div style="display: flex;flex-direction: column;justify-content: center;">
+        <h2>Журналист, корреспондент, копирайтер.</h2>
+        <p>Пишу для региональных изданий, снимаю репортажи и делаю интервью. На связи для редакций и проектов под ключ.</p>
+        <div class="badges" aria-label="Направления">
+          <span class="badge">интервью</span>
+          <span class="badge">репортаж</span>
+          <span class="badge">новости</span>
+        </div>
+        <div class="cta">
+          <a class="btn primary" href="#contact">Связаться</a>
+          <a class="btn" href="cv.pdf" download>Скачать резюме</a>
+        </div>
       </div>
-      <div class="cta">
-        <a class="btn primary" href="#contact">Связаться</a>
-        <a class="btn" href="cv.pdf" download>Скачать резюме</a>
-      </div>
+      <div class="item" style="max-height: 456px;max-width: 300px;"><img src="img/education.png"></div>
     </section>
 
     <!-- About -->
@@ -426,32 +429,53 @@
 
 
 .grid-wrapper {
-  max-height: 560px; /* высота под 2 статьи */
+  max-height: 680px; /* высота под 2 статьи */
   overflow: hidden;
   transition: max-height 0.6s ease;
 }
 
 .grid-wrapper.expanded {
-  max-height: 3000px; /* большое значение для раскрытия */
+  max-height: 4000px; /* большое значение для раскрытия */
 }
 
 .toggle-btn {
   display: block;
   margin: 24px auto 0;
   padding: 10px 20px;
-  border: none;
+  border: 1px solid rgba(148, 163, 184, .25);
   border-radius: 8px;
-  background: #222;
+  background: var(--bg-soft);
   color: #fff;
   font-size: 15px;
   cursor: pointer;
-  transition: background 0.3s;
+  transition: all 0.3s;
 }
 .toggle-btn:hover {
-  background: #444;
+  transform: scale(1.04);
+}
+.tags-more {
+  padding: 14px;
+  margin-top: auto;
 }
 
 </style>
+<!-- Education -->
+<section id="education" class="about">
+  <h3 class="section-title"><span class="dot"></span> Образование</h3>
+  <div class="grid">
+    <article class="card" aria-labelledby="about-title" style="justify-items: center;">
+      <div class="content">
+        <h4 id="about-title">СГУ имени Н.Г. Чернышевского<br>Направление «Журналистика»</h4>
+        <p>
+          Во время учёбы в университете активно участвовала в студенческих СМИ, вела авторские рубрики и брала интервью у известных спикеров.  
+          Прошла образовательную программу <strong>«МедиаЦЕХ» АНО «ШУМ»</strong> по направлению <em>«Пресс-секретарь»</em>.  
+          Дополнительно окончила курс <strong>«История и теория медиа»</strong> в ВШЭ, что позволило глубже понять современные коммуникационные процессы.
+        </p>
+      </div>
+      <img src="https://sun9-49.userapi.com/s/v1/if2/WftV1M_Xm5WbxruqbfMaqSU_vcdMtHX5lMl4XROptN5H8UmYrocTjcGXDHp_OsY85R7KgklO_GXNy3WrMKenCFnR.jpg?quality=95&as=32x21,48x32,72x48,108x72,160x107,240x160,360x240,480x320,540x360,640x426,720x480,1080x720,1280x853,1440x960,2560x1706&from=bu&cs=2560x0" alt="Образование">
+    </article>
+  </div>
+</section>
 
 <section id="about" class="about">
   <h3 class="section-title"><span class="dot"></span> Обо мне</h3>
@@ -484,20 +508,22 @@
       </div>
 
       <!-- Контакты -->
-      <p style="font-size: 24pt; font-weight: bold;margin: 0;">mpolushik@gmail.com</p>
-      <div style="display:flex;gap:24px;justify-content:center; margin-bottom: 12px;">
-        <!-- Telegram -->
-        <a href="https://t.me/caligokras" target="_blank" rel="noopener" aria-label="Telegram" class="social-icon tg">
-          <svg width="48px" height="48px" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" class="bi bi-telegram">
-            <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.287 5.906c-.778.324-2.334.994-4.666 2.01-.378.15-.577.298-.595.442-.03.243.275.339.69.47l.175.055c.408.133.958.288 1.243.294.26.006.549-.1.868-.32 2.179-1.471 3.304-2.214 3.374-2.23.05-.012.12-.026.166.016.047.041.042.12.037.141-.03.129-1.227 1.241-1.846 1.817-.193.18-.33.307-.358.336a8.154 8.154 0 0 1-.188.186c-.38.366-.664.64.015 1.088.327.216.589.393.85.571.284.194.568.387.936.629.093.06.183.125.27.187.331.236.63.448.997.414.214-.02.435-.22.547-.82.265-1.417.786-4.486.906-5.751a1.426 1.426 0 0 0-.013-.315.337.337 0 0 0-.114-.217.526.526 0 0 0-.31-.093c-.3.005-.763.166-2.984 1.09z"/>
-          </svg>
-        </a>
-        <!-- VK -->
-        <a href="https://vk.com/awemariiam" target="_blank" rel="noopener" aria-label="VK" class="social-icon vk">
-          <svg width="48px" height="48px" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-            <path d="M10 .4C4.698.4.4 4.698.4 10s4.298 9.6 9.6 9.6 9.6-4.298 9.6-9.6S15.302.4 10 .4zm3.692 10.831s.849.838 1.058 1.227c.006.008.009.016.011.02.085.143.105.254.063.337-.07.138-.31.206-.392.212h-1.5c-.104 0-.322-.027-.586-.209-.203-.142-.403-.375-.598-.602-.291-.338-.543-.63-.797-.63a.305.305 0 0 0-.095.015c-.192.062-.438.336-.438 1.066 0 .228-.18.359-.307.359h-.687c-.234 0-1.453-.082-2.533-1.221-1.322-1.395-2.512-4.193-2.522-4.219-.075-.181.08-.278.249-.278h1.515c.202 0 .268.123.314.232.054.127.252.632.577 1.2.527.926.85 1.302 1.109 1.302a.3.3 0 0 0 .139-.036c.338-.188.275-1.393.26-1.643 0-.047-.001-.539-.174-.775-.124-.171-.335-.236-.463-.26a.55.55 0 0 1 .199-.169c.232-.116.65-.133 1.065-.133h.231c.45.006.566.035.729.076.33.079.337.292.308 1.021-.009.207-.018.441-.018.717 0 .06-.003.124-.003.192-.01.371-.022.792.24.965a.216.216 0 0 0 .114.033c.091 0 .365 0 1.107-1.273a9.718 9.718 0 0 0 .595-1.274c.015-.026.059-.106.111-.137a.266.266 0 0 1 .124-.029h1.781c.194 0 .327.029.352.104.044.119-.008.482-.821 1.583l-.363.479c-.737.966-.737 1.015.046 1.748z"/>
-          </svg>
-        </a>
+      <div style="display: flex;gap: 16px;flex-direction: column;">
+        <p style="font-size: 24pt; font-weight: bold;margin: 0;">mpolushik@gmail.com</p>
+        <div style="display:flex;gap:24px;justify-content:center; margin-bottom: 12px;">
+          <!-- Telegram -->
+          <a href="https://t.me/caligokras" target="_blank" rel="noopener" aria-label="Telegram" class="social-icon tg">
+            <svg width="48px" height="48px" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" class="bi bi-telegram">
+              <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.287 5.906c-.778.324-2.334.994-4.666 2.01-.378.15-.577.298-.595.442-.03.243.275.339.69.47l.175.055c.408.133.958.288 1.243.294.26.006.549-.1.868-.32 2.179-1.471 3.304-2.214 3.374-2.23.05-.012.12-.026.166.016.047.041.042.12.037.141-.03.129-1.227 1.241-1.846 1.817-.193.18-.33.307-.358.336a8.154 8.154 0 0 1-.188.186c-.38.366-.664.64.015 1.088.327.216.589.393.85.571.284.194.568.387.936.629.093.06.183.125.27.187.331.236.63.448.997.414.214-.02.435-.22.547-.82.265-1.417.786-4.486.906-5.751a1.426 1.426 0 0 0-.013-.315.337.337 0 0 0-.114-.217.526.526 0 0 0-.31-.093c-.3.005-.763.166-2.984 1.09z"/>
+            </svg>
+          </a>
+          <!-- VK -->
+          <a href="https://vk.com/awemariiam" target="_blank" rel="noopener" aria-label="VK" class="social-icon vk">
+            <svg width="48px" height="48px" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+              <path d="M10 .4C4.698.4.4 4.698.4 10s4.298 9.6 9.6 9.6 9.6-4.298 9.6-9.6S15.302.4 10 .4zm3.692 10.831s.849.838 1.058 1.227c.006.008.009.016.011.02.085.143.105.254.063.337-.07.138-.31.206-.392.212h-1.5c-.104 0-.322-.027-.586-.209-.203-.142-.403-.375-.598-.602-.291-.338-.543-.63-.797-.63a.305.305 0 0 0-.095.015c-.192.062-.438.336-.438 1.066 0 .228-.18.359-.307.359h-.687c-.234 0-1.453-.082-2.533-1.221-1.322-1.395-2.512-4.193-2.522-4.219-.075-.181.08-.278.249-.278h1.515c.202 0 .268.123.314.232.054.127.252.632.577 1.2.527.926.85 1.302 1.109 1.302a.3.3 0 0 0 .139-.036c.338-.188.275-1.393.26-1.643 0-.047-.001-.539-.174-.775-.124-.171-.335-.236-.463-.26a.55.55 0 0 1 .199-.169c.232-.116.65-.133 1.065-.133h.231c.45.006.566.035.729.076.33.079.337.292.308 1.021-.009.207-.018.441-.018.717 0 .06-.003.124-.003.192-.01.371-.022.792.24.965a.216.216 0 0 0 .114.033c.091 0 .365 0 1.107-1.273a9.718 9.718 0 0 0 .595-1.274c.015-.026.059-.106.111-.137a.266.266 0 0 1 .124-.029h1.781c.194 0 .327.029.352.104.044.119-.008.482-.821 1.583l-.363.479c-.737.966-.737 1.015.046 1.748z"/>
+            </svg>
+          </a>
+        </div>
       </div>
 
       <!-- Навыки -->
@@ -514,26 +540,6 @@
     </article>
   </div>
 </section>
-
-
-    <!-- Education -->
-    <section id="education" class="about">
-      <h3 class="section-title"><span class="dot"></span> Образование</h3>
-      <div class="grid">
-        <article class="card" aria-labelledby="about-title">
-          <div class="content">
-            <h4 id="about-title">СГУ имени Н.Г. Чернышевского<br>Направление «Журналистика»</h4>
-            <p>
-              Во время учёбы в университете активно участвовала в студенческих СМИ, вела авторские рубрики и брала интервью у известных спикеров.  
-              Прошла образовательную программу <strong>«МедиаЦЕХ» АНО «ШУМ»</strong> по направлению <em>«Пресс-секретарь»</em>.  
-              Дополнительно окончила курс <strong>«История и теория медиа»</strong> в ВШЭ, что позволило глубже понять современные коммуникационные процессы.
-            </p>
-          </div>
-          <img src="https://sun9-53.userapi.com/s/v1/if2/f3XFmnZ-iEcp4VBAC3bLfkNDJTIZQ9peL2DmHUxeEIsozuyRSeJCNhK8UWh80XfwYvVJ_Qh8VatCG26lLoCMuwl-.jpg?quality=95&as=32x24,48x36,72x54,108x80,160x119,240x178,360x268,480x357,540x401,640x476,720x535,1080x803,1280x951,1440x1070,2560x1903&from=bu&cs=2560x0" alt="Образование">
-        </article>
-      </div>
-    </section>
-
 
     <!-- Work -->
     <section id="work" class="work">
@@ -554,12 +560,14 @@
               <div class="meta">
                 <span>Издание C</span>
                 <span>•</span>
-                <span data-words="2200">1 мин чтения</span>
+                <span data-words="228">1 мин чтения</span>
                 <span>•</span>
-                <time datetime="2024-11-03">3 ноября 2024</time>
+                <time datetime="2025-06-23">23 июня 2025</time>
               </div>
-              <h4>Ночная смена: репортаж из приёмного отделения</h4>
-              <p>Как работает больница на пределе возможностей — день и ночь вместе с врачами и пациентами.</p>
+              <h4>🌞 В ГОРОДЕ: ПРЕМА = любовь + ты</h4>
+              <p>Где живёт любовь? На фестивале ПРЕМА!<br>Фестиваль проходит с 20 по 22 июня. Дата выбрана не случайно...</p>
+            </div>
+            <div class="tags-more">
               <div class="tags">
                 <span class="tag">репортаж</span>
                 <span class="tag">медицина</span>
@@ -575,12 +583,14 @@
               <div class="meta">
                 <span>Издание A</span>
                 <span>•</span>
-                <span data-words="1800">1 мин чтения</span>
+                <span data-words="605">1 мин чтения</span>
                 <span>•</span>
-                <time datetime="2024-07-18">18 июля 2024</time>
+                <time datetime="2024-10-27">27 октября 2024</time>
               </div>
-              <h4>Цифровые права и новые правила игры</h4>
-              <p>К чему приводят новые регуляции для пользователей и бизнеса: факты, риски и прогнозы.</p>
+              <h4>📈 В ГОРОДЕ: Наука всегда кстати</h4>
+              <p>26 октября в пространстве «Арена» прошёл фестиваль науки «Кстати. Место притяжения»</p>
+            </div>
+            <div class="tags-more">
               <div class="tags">
                 <span class="tag">аналитика</span>
                 <span class="tag">технологии</span>
@@ -595,12 +605,14 @@
               <div class="meta">
                 <span>Издание A</span>
                 <span>•</span>
-                <span data-words="1100">1 мин чтения</span>
+                <span data-words="538">1 мин чтения</span>
                 <span>•</span>
-                <time datetime="2025-04-12">12 апреля 2025</time>
+                <time datetime="2025-06-26">26 июня 2025</time>
               </div>
-              <h4>Теневая экономика города: кому выгодны серые рынки</h4>
-              <p>Разбор схем и участников с документами и комментариями экспертов — как работают серые рынки и что с ними делать.</p>
+              <h4>🦋 В СГУЩЁНКЕ: Я здесь ищу только одного – покоя, умиротворения…</h4>
+              <p>Порой нам абсолютно непонятен не только внешний мир, но и внутренний, мир наших эмоций и чувств.</p>
+            </div>
+            <div class="tags-more">
               <div class="tags">
                 <span class="tag">расследование</span>
                 <span class="tag">экономика</span>
@@ -611,22 +623,162 @@
 
           <!-- Card 4 -->
           <article class="item card" data-tags="интервью">
-            <div class="cover" role="img" aria-label="Портрет героя интервью"><img src="https://sun9-82.userapi.com/s/v1/ig2/oUzjzxyz23FPRcGTUC7EkpuiirhLvyMq2KRK-0zhvTf4eT1Oag4PxZ1uk94T_mZtJpEtCocQUriDLGsZJcpEJ_Ny.jpg?quality=95&as=32x40,48x60,72x90,108x135,160x200,240x300,360x450,480x600,540x675,640x800,720x900,1024x1280&from=bu&cs=1024x0"></div>
+            <div class="cover" role="img" aria-label="Портрет героя интервью"><img src="https://sun9-85.userapi.com/s/v1/ig2/fN83qWc1-_hf-9cvV-7g-AKR_DtyhTJ27Ck-Nuuq7n_VyJS2wmLW3AlX-3G3SAlPJCzvAUyqWaVWmCkH25wisbVQ.jpg?quality=96&as=32x40,48x60,72x90,108x135,160x200,240x300,360x450,480x600,540x675,640x800,720x900,1080x1350&from=bu&cs=1080x0"></div>
             <div class="content">
               <div class="meta">
                 <span>Издание B</span>
                 <span>•</span>
-                <span data-words="1600">1 мин чтения</span>
+                <span data-words="153">1 мин чтения</span>
                 <span>•</span>
-                <time datetime="2025-02-20">20 февраля 2025</time>
+                <time datetime="2023-07-20">20 июля 2023</time>
               </div>
-              <h4>«Город должен слушать»: интервью с урбанистом N</h4>
-              <p>О том, почему дворы пустеют, как вернуть жизнь на улицы и где граница между комфортом и контролем.</p>
+              <h4>В СГУЩЁНКЕ: Авторские недели</h4>
+              <p>🤔 Что, если бы наши любимые песни стали модными образами?</p>
+            </div>
+            <div class="tags-more">
               <div class="tags">
                 <span class="tag">интервью</span>
                 <span class="tag">урбанистика</span>
               </div>
-              <a class="more" href="https://vk.com/wall-30492350_30051" target="_blank" rel="noopener">Читать в издании</a>
+              <a class="more" href="https://vk.com/wall-30492350_24855" target="_blank" rel="noopener">Читать в издании</a>
+            </div>
+          </article>
+
+          <!-- Card 5 -->
+          <article class="item card" data-tags="интервью">
+            <div class="cover" role="img" aria-label="Портрет героя интервью"><img src="https://sun9-11.userapi.com/s/v1/if2/UoJQp9LTguHuwH1uC7RWJIsijIibOFr19JstHHPRQhLZ4DUwLGtOWB9M2e5SE7ssOrpnLJYt-2RqILfRuU7GJbOI.jpg?quality=95&as=32x21,48x32,72x48,108x72,160x107,240x160,360x240,480x320,540x360,640x427,720x480,1080x720,1280x853,1440x960,2560x1707&from=bu&cs=2560x0"></div>
+            <div class="content">
+              <div class="meta">
+                <span>Издание B</span>
+                <span>•</span>
+                <span data-words="242">1 мин чтения</span>
+                <span>•</span>
+                <time datetime="2024-05-23">23 мая 2024</time>
+              </div>
+              <h4>В ГОРОДЕ: Собиновский фестиваль</h4>
+              <p>🎼 21 мая на Новой сцене Саратовского академического театра оперы и балета произошло открытие XXXVII Собиновского фестиваля.</p>
+            </div>
+            <div class="tags-more">
+              <div class="tags">
+                <span class="tag">интервью</span>
+                <span class="tag">урбанистика</span>
+              </div>
+              <a class="more" href="https://vk.com/wall-30492350_27606" target="_blank" rel="noopener">Читать в издании</a>
+            </div>
+          </article>
+
+          <!-- Card 6 -->
+          <article class="item card" data-tags="интервью">
+            <div class="cover" role="img" aria-label="Портрет героя интервью"><img src="https://sun9-31.userapi.com/s/v1/if2/oWBK0rgxoyfIKGYOFyht1JACyYixNjUMqGzxa1odw14rZJO9ZFtsKETii9yXLg-bgx25KbmfgChxU2MGOwjlRJm1.jpg?quality=95&as=32x21,48x32,72x48,108x72,160x107,240x160,360x240,480x320,540x360,640x427,720x480,1080x720,1280x853,1440x960,2560x1707&from=bu&cs=2560x0"></div>
+            <div class="content">
+              <div class="meta">
+                <span>Издание B</span>
+                <span>•</span>
+                <span data-words="378">1 мин чтения</span>
+                <span>•</span>
+                <time datetime="2024-08-26">26 августа 2024</time>
+              </div>
+              <h4>🎨 В ГОРОДЕ: Академизм VS андеграунд</h4>
+              <p>24 августа на фестивале «Одно» творческая группа «ИМПУЛЬС» объединила любителей искусства в природном пространстве АпиДачи.</p>
+            </div>
+            <div class="tags-more">
+              <div class="tags">
+                <span class="tag">интервью</span>
+                <span class="tag">урбанистика</span>
+              </div>
+              <a class="more" href="https://vk.com/wall-30492350_28189" target="_blank" rel="noopener">Читать в издании</a>
+            </div>
+          </article>
+
+          <!-- Card 7 -->
+          <article class="item card" data-tags="интервью">
+            <div class="cover" role="img" aria-label="Портрет героя интервью"><img src="https://sun9-51.userapi.com/s/v1/ig2/5CSlEUUR3_shzd7MptO9hor4bPVsieR1JTeDVozit0nzyUDEZksulgIQwiw_Ra6s-NFMhfRbpwCudkESQc_WXP1x.jpg?quality=95&as=32x32,48x48,72x72,108x108,160x160,240x240,360x360,480x480,540x540,640x640,720x720,1080x1080,1280x1280,1440x1440,2560x2560&from=bu&cs=2560x0"></div>
+            <div class="content">
+              <div class="meta">
+                <span>Издание B</span>
+                <span>•</span>
+                <span data-words="440">1 мин чтения</span>
+                <span>•</span>
+                <time datetime="2025-04-17">17 апреля 2025</time>
+              </div>
+              <h4>📚 В СГУЩЁНКЕ: Книга от редакции</h4>
+              <p>Как приятно ощутить на языке вкус горячего топлёного сливочного масла, обволакивающего золотистый поджаренный рис. Также приятно, как совершить очередное убийство…</p>
+            </div>
+            <div class="tags-more">
+              <div class="tags">
+                <span class="tag">интервью</span>
+                <span class="tag">урбанистика</span>
+              </div>
+              <a class="more" href="https://vk.com/wall-30492350_29713" target="_blank" rel="noopener">Читать в издании</a>
+            </div>
+          </article>
+
+          <!-- Card 8 -->
+          <article class="item card" data-tags="интервью">
+            <div class="cover" role="img" aria-label="Портрет героя интервью"><img src="https://sun9-24.userapi.com/s/v1/ig2/kKzE3cNxDlyE7gdUfmW_83a-kiHqbSVQtpUKTbbe0YQSdSZgpMkQzt8XcmjzxH4YzunKvy2CzEWdJYMO1aSc1xwQ.jpg?quality=95&as=32x32,48x48,72x72,108x108,160x160,240x240,360x360,480x480,540x540,640x640,720x720,1000x1000&from=bu&cs=1000x0"></div>
+            <div class="content">
+              <div class="meta">
+                <span>Издание B</span>
+                <span>•</span>
+                <span data-words="392">1 мин чтения</span>
+                <span>•</span>
+                <time datetime="2024-10-08">08 октября 2024</time>
+              </div>
+              <h4>🩰 В СГУЩЁНКЕ: Следуй за примой</h4>
+              <p>Социальные сети регулярно пополняют наш словарный запас, именно оттуда в речь вошёл термин «core» (англ. — ядро, суть).</p>
+            </div>
+            <div class="tags-more">
+              <div class="tags">
+                <span class="tag">интервью</span>
+                <span class="tag">урбанистика</span>
+              </div>
+              <a class="more" href="https://vk.com/wall-30492350_28539" target="_blank" rel="noopener">Читать в издании</a>
+            </div>
+          </article>
+
+          <!-- Card 9 -->
+          <article class="item card" data-tags="интервью">
+            <div class="cover" role="img" aria-label="Портрет героя интервью"><img src="https://sun9-64.userapi.com/s/v1/if2/fvENVAKg9PRwMP7MhpnFSQ6YwPGWU10b0goYUqnMCqEjp1Sr5xAdFRUXle9qxIS-35CWE0DkRB11QnslWGOhQnOH.jpg?quality=95&as=32x21,48x32,72x48,108x72,160x107,240x160,360x240,480x320,540x360,640x426,720x480,1080x720,1280x853,1440x960,2560x1706&from=bu&cs=2560x0"></div>
+            <div class="content">
+              <div class="meta">
+                <span>Издание B</span>
+                <span>•</span>
+                <span data-words="383">1 мин чтения</span>
+                <span>•</span>
+                <time datetime="2023-12-01">01 декабря 2023</time>
+              </div>
+              <h4>В ГОРОДЕ: «Арбитры прекрасного» в Радищевском музее</h4>
+              <p>Выставка художников серебряного века «Арбитры прекрасного.</p>
+            </div>
+            <div class="tags-more">
+              <div class="tags">
+                <span class="tag">интервью</span>
+                <span class="tag">урбанистика</span>
+              </div>
+              <a class="more" href="https://vk.com/wall-30492350_26215" target="_blank" rel="noopener">Читать в издании</a>
+            </div>
+          </article>
+
+          <!-- Card 10 -->
+          <article class="item card" data-tags="интервью">
+            <div class="cover" role="img" aria-label="Портрет героя интервью"><img src="https://sun9-20.userapi.com/s/v1/if2/pGDufOZzSxrrvDsRwfb21ZPacl4yvbkmAqHROENJE8WntEZqTU2NinsYExaog02iumu4dgsGdRZSZhjZ_U6x3hjQ.jpg?quality=95&as=32x21,48x32,72x48,108x72,160x107,240x160,360x240,480x320,540x360,640x427,720x480,1080x720,1280x853,1440x960,2560x1707&from=bu&cs=2560x0"></div>
+            <div class="content">
+              <div class="meta">
+                <span>Издание B</span>
+                <span>•</span>
+                <span data-words="428">1 мин чтения</span>
+                <span>•</span>
+                <time datetime="2024-05-22">22 мая 2024</time>
+              </div>
+              <h4>В ГОРОДЕ: Апокалипсис</h4>
+              <p>19 мая танцевальный коллектив DM SHOW представил шоу «APOCALYPSE. The end of Renaissance».</p>
+            </div>
+            <div class="tags-more">
+              <div class="tags">
+                <span class="tag">интервью</span>
+                <span class="tag">урбанистика</span>
+              </div>
+              <a class="more" href="https://vk.com/wall-30492350_27602" target="_blank" rel="noopener">Читать в издании</a>
             </div>
           </article>
         </div>
