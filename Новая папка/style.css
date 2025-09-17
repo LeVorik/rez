@@ -24,7 +24,7 @@ a{color:inherit;text-decoration:none}
 
 /* Header */
 header{position:sticky;top:0;z-index:50;background:linear-gradient(180deg,rgba(11,16,32,.95),rgba(11,16,32,.75));backdrop-filter:saturate(140%) blur(8px);border-bottom:1px solid rgba(148,163,184,.15)}
-.nav{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:12px 10px}
 .brand{display:flex;gap:12px;align-items:center}
 .avatar{width:40px;height:40px;border-radius:50%;background:var(--brand-gradient);display:grid;place-items:center;color:#0b1020;font-weight:800}
 .brand h1{font-size:18px;margin:0}
@@ -33,7 +33,7 @@ nav a{padding:8px 10px;border-radius:999px;transition: all 0.3s}
 nav a:hover,nav a:focus{outline:none;box-shadow:var(--ring);background:rgba(216,180,254,.2)}
 
 /* Hero */
-.hero{padding:56px 0; gap:80px;display:flex;}
+.hero{padding:56px 0; gap:80px;display:flex;align-items:center;}
 .hero h2{font-size:44px;line-height:1.15;margin:0 0 12px}
 .hero span, .about span{background:linear-gradient(135deg, #ffffff, #ebebeb, #bbbbbb, #ffffff);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
 .hero p{color:var(--muted);margin:0 0 18px}
@@ -294,7 +294,7 @@ footer{padding:30px 0;color:var(--muted);border-top:1px solid rgba(148,163,184,.
 #about .intro {
   font-size: 1.05rem;
   line-height: 1.7;
-  text-align: center;
+  text-align: justify;
   max-width: 720px;
   margin: 0 auto;
 }
@@ -343,7 +343,7 @@ footer{padding:30px 0;color:var(--muted);border-top:1px solid rgba(148,163,184,.
 }
 
 .grid-wrapper.expanded {
-  max-height: 4000px; /* большое значение для раскрытия */
+  max-height: 8000px; /* большое значение для раскрытия */
 }
 
 .toggle-btn {
@@ -384,7 +384,7 @@ footer{padding:30px 0;color:var(--muted);border-top:1px solid rgba(148,163,184,.
 /* --- Адаптация под телефоны --- */
 @media (max-width: 768px) {
   .hero {
-    flex-direction: column;
+    flex-direction: column-reverse;
     gap: 32px;
     text-align: center;
   }
@@ -407,10 +407,8 @@ footer{padding:30px 0;color:var(--muted);border-top:1px solid rgba(148,163,184,.
     width: 100%;
     margin-bottom: 12px;
   }
-  nav ul {
-    flex-direction: column;
-    gap: 8px;
-    align-items: center;
+  nav {
+    display: none;
   }
   .section-title {
     justify-content: center;
@@ -423,7 +421,28 @@ footer{padding:30px 0;color:var(--muted);border-top:1px solid rgba(148,163,184,.
   .inline-1 {
     text-align: left;
   }
+  .inline-6 {
+    font-size: 20pt;
+  }
   .about .card {
-    display: unset;
+    display: unset  ;
+  }
+  #about .subsection .skills {
+    flex-direction: column;
+  }
+  .gallery-layout .small:nth-child(1),
+  .gallery-layout .small:nth-child(2),
+  .gallery-layout .small:nth-child(3),
+  .gallery-layout .small:nth-child(4),
+  .gallery-layout .vertical {
+    grid-area: unset;
+  }
+  .gallery-layout {
+    grid-template-columns: unset;
+    grid-template-rows: unset;
+    grid-template-areas: unset;
+  }
+  .gallery-layout .item {
+    height: fit-content;
   }
 }
