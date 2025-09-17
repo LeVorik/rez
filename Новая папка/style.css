@@ -138,7 +138,7 @@ textarea{min-height:120px;resize:vertical}
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 @media (max-width:700px){.form-row{grid-template-columns:1fr}}
 
-footer{padding:30px 0;color:var(--muted);border-top:1px solid rgba(148,163,184,.15)}
+footer{padding:30px 0;color:var(--muted);border-top:1px solid rgba(148,163,184,.15);text-align:center;}
 .social{display:flex;gap:12px}
 
 /* Print */
